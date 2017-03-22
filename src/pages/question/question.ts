@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 
-import { LobbyPage } from '../lobby/lobby';
+import { ResultsPage } from '../results/results';
 /*
   Generated class for the Question page.
 
@@ -67,7 +67,11 @@ export class QuestionPage {
       this.testAnswers.createDate = new Date().toISOString();
       tests.push(this.testAnswers);
       window.localStorage.setItem("tests", JSON.stringify(tests));
-      this.navCtrl.setRoot(LobbyPage);
+      console.log("hit")
+      this.navCtrl.setRoot(ResultsPage, {
+        test: this.testAnswers,
+        showHome: true
+      });
     }
   }
 }

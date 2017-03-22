@@ -1,6 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { MyApp } from './app.component';
 import { LobbyPage } from '../pages/lobby/lobby';
@@ -20,7 +19,7 @@ let injections: any[] = [
   declarations: injections,
   imports: [
     IonicModule.forRoot(MyApp),
-    ChartsModule
+    // ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,
