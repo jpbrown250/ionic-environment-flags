@@ -1,0 +1,57 @@
+<!--
+  Generated template for the Question page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary" text-center>
+    <ion-title>Question</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides pager paginationType="fraction">
+    <ion-slide *ngFor="let question of questions;">
+      <ion-card (click)="nextSlide(question.A)">
+        <ion-card-header>
+          Option {{question.A.Answer_ID}}
+        </ion-card-header>
+        <ion-card-content>
+          {{question.A.Text}}
+        </ion-card-content>
+      </ion-card>
+      <ion-card (click)="nextSlide(question.B)">
+        <ion-card-header>
+          Option {{question.B.Answer_ID}}
+        </ion-card-header>
+        <ion-card-content>
+          {{question.B.Text}}
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+  <!--<ion-card (click)="buttonClicked('A')">-->
+  <!--  <ion-card-header>-->
+  <!--    Option {{questionA.Answer_ID}}-->
+  <!--  </ion-card-header>-->
+  
+  <!--  <ion-card-content>-->
+  <!--    {{questionA.Text}}-->
+  <!--  </ion-card-content>-->
+  <!--</ion-card>-->
+  
+  <!--<ion-card (click)="buttonClicked('B')">-->
+  <!--  <ion-card-header>-->
+  <!--    Option {{questionB.Answer_ID}}-->
+  <!--  </ion-card-header>-->
+  
+  <!--  <ion-card-content>-->
+  <!--    {{questionB.Text}}-->
+  <!--  </ion-card-content>-->
+  <!--</ion-card>-->
