@@ -1,4 +1,5 @@
 # The purpose of this script is to aid with the use of production and development environments.
+(designed for ionic2)
 
 ### Features:
 * Config files in either .js or .json (if both are found the .js config will be prioritized)
