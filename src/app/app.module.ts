@@ -7,6 +7,8 @@ import { QuestionPage } from '../pages/question/question';
 import { HistoryPage } from '../pages/history/history';
 import { ResultsPage } from '../pages/results/results';
 
+import { AppConfig } from '../providers/app-config';
+
 let injections: any[] = [
   MyApp,
   LobbyPage,
@@ -23,6 +25,9 @@ let injections: any[] = [
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppConfig
+  ]
 })
 export class AppModule {}
