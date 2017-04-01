@@ -16,10 +16,15 @@
 "generate-env": "node ./scripts/replace.env",
 </blockquote>
 3. Create an env folder in your project and create files for your different evnironments named the way you want to refer to them in the command line. For example: production.js can be targeted with -env=p
+
 4. Import/inject the provider in your app.modules.ts as you would with any other provider (use this file path: `../providers/app-config`)
+
 5. Create your environment object and fill it with what you need
+
 6. Import the module in any other ts file(s) you want to use it in.
+
 7. Run `npm run generate-env` or your normal `ionic serve` or even `ionic build` and be sure to add the flag referring to the name of your js or json file as `-env=production` or `-env=prod` or `-env=p`
+
 8. Check your `src/providers/app-config` file to make sure it worked and for how call your variables.
 
 ### Protect your Environment Information:
