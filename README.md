@@ -15,6 +15,7 @@
 "preionic:serve": "node ./scripts/replace.env",<br>
 "generate-env": "node ./scripts/replace.env",
 </blockquote>
+
 3. Create an env folder in your project and create files for your different evnironments named the way you want to refer to them in the command line. For example: production.js can be targeted with -env=p
 
 4. Import/inject the provider in your app.modules.ts as you would with any other provider (use this file path: `../providers/app-config`)
