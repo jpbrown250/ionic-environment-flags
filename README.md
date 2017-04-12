@@ -24,7 +24,7 @@
 
 6. Import the module in any other ts file(s) you want to use it in.
 
-7. Run `npm run generate-env` or your normal `ionic serve` or even `ionic build` and be sure to add the flag referring to the name of your js or json file as `-env=production` or `-env=prod` or `-env=p`
+7. Run `npm run generate-env` or your normal `ionic serve` or even `ionic build` and be sure to add the flag referring to the name of your js or json file as `--env production` or `--env prod` or `--env p`
 
 8. Check your `src/providers/app-config` file to make sure it worked and for how call your variables.
 
@@ -59,7 +59,7 @@ module.exports = data;
 }
 </blockquote>
 
-* if I run `npm run generate-env -env=d` my component contains this:
+* if I run `npm run generate-env --env d` my component contains this:
 <!-- NOTE: This is meant to be seen through markdown styling -->
 <blockquote>
 ...<br>
@@ -67,13 +67,12 @@ module.exports = data;
 export class AppConfig {<br>
   &nbsp;constructor() {}<br>
   &nbsp;static get apiUrl() {<br>
-    &nbsp;&nbsp;const apiUrlConst = "www.your-dev-url.com"<br>
-    &nbsp;&nbsp;return apiUrlConst<br>
+    &nbsp;&nbsp;return "www.your-dev-url.com";<br>
   &nbsp;}<br>
 }
 </blockquote>
 
-* if I run `npm run generate-env -env=p` my component contains this:
+* if I run `npm run generate-env --env p` my component contains this:
 <!-- NOTE: This is meant to be seen through markdown styling -->
 <blockquote>
 ...<br>
@@ -81,12 +80,10 @@ export class AppConfig {<br>
 export class AppConfig {<br>
   &nbsp;constructor() {}<br>
   &nbsp;static get apiUrl() {<br>
-    &nbsp;&nbsp;const apiUrlConst = "www.your-prod-site.com"<br>
-    &nbsp;&nbsp;return apiUrlConst<br>
+    &nbsp;&nbsp;return "www.your-prod-site.com";<br>
   &nbsp;}<br>
   &nbsp;static get someApiKey() {<br>
-    &nbsp;&nbsp;const someApiKeyConst = undefined<br>
-    &nbsp;&nbsp;return someApiKeyConst<br>
+    &nbsp;&nbsp;return undefined;<br>
   &nbsp;}<br>
 }
 </blockquote>

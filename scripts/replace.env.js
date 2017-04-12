@@ -5,28 +5,13 @@ var fs = require('fs');
 // Get the environment flag used to run the command
 var envFlag = "dev"; // dev is the default
 var envFlagMatches = 0;
-JSON.parse(process.env.npm_config_argv).original.forEach(function(flag) {
-  if(/--env=/.test(flag)) {
-    envFlag = flag.slice(6);
-    envFlagMatches++;
-  } else if(/-env=/.test(flag)) {
-    envFlag = flag.slice(5);
-    envFlagMatches++;
-  }
-});
-
-// Warn the user if they used multiple env= flags
-if(envFlagMatches > 1) {
-  // TODO: make this yellow
-  console.warn(
-    "\x1b[33m",
-    "::WARNING:: Multiple --env= or -env= flags were found.\n" +
-    " ::WARNING:: " +
-    process.argv.find(function(item) {
-      return new RegExp(envFlag + "\\b").test(item);
-    }) +
-    " will be used."
-  );
+var flags = JSON.parse(process.env.npm_config_argv).original
+if(flags.indexOf("--env") > 0) {
+  envFlag = flags[flags.indexOf("--env") + 1];
+  envFlagMatches++;
+  console.log("Using \"" + envFlag + "\" that you set.");
+} else {
+  console.log("Using the default flag of \"" + envFlag + "\".");
 }
 
 // Get an array of all of the possible environment strings
@@ -86,8 +71,7 @@ var configContent = '';
 for(var i in envVars) {
   configContent += 
   `static get ${i}() {
-    const ${i}Const = ${JSON.stringify(envVars[i])};
-    return ${i}Const
+    return ${JSON.stringify(envVars[i])};
   }
   `;
 }
