@@ -9,7 +9,7 @@ var flags = JSON.parse(process.env.npm_config_argv).original
 if(flags.indexOf("--env") > 0) {
   envFlag = flags[flags.indexOf("--env") + 1];
   envFlagMatches++;
-  console.log("Using \"" + envFlag + "\" that you set.");
+  console.log("Using the environment variable \"" + envFlag + "\" that you set.");
 } else {
   console.log("Using the default flag of \"" + envFlag + "\".");
 }

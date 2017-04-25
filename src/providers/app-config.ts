@@ -11,8 +11,11 @@ import 'rxjs/add/operator/map';
 export class AppConfig {
 
   constructor() {}
-  static get url() {
-    return "hello.world.com";
+  static get apiUrl() {
+    return "www.your-prod-site.com";
+  }
+  static get someApiKey() {
+    return undefined;
   }
   
 }

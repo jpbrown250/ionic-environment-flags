@@ -16,7 +16,7 @@
 "generate-env": "node ./scripts/replace.env",
 </blockquote>
 
-3. Create an env folder in your project and create files for your different evnironments named the way you want to refer to them in the command line. For example: production.js can be targeted with -env=p
+3. Create an env folder in your project and create files for your different evnironments named the way you want to refer to them in the command line. For example: production.js can be targeted with `--env p`
 
 4. Import/inject the provider in your app.modules.ts as you would with any other provider (use this file path: `../providers/app-config`)
 
@@ -27,6 +27,10 @@
 7. Run `npm run generate-env` or your normal `ionic serve` or even `ionic build` and be sure to add the flag referring to the name of your js or json file as `--env production` or `--env prod` or `--env p`
 
 8. Check your `src/providers/app-config` file to make sure it worked and for how call your variables.
+
+### ionic-app-scripts known issues/fixes
+* `ionic build <platform> --env p` will get an error saying that p is not a valid platform. To fix this, run the command like this: `ionic build android -- --env p` for more information on what is actually going on, you can refer to the cordova cli docs found [here](https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html#cordova-build-command) specifically the the part related to `[-- <platformOpts>]`.
+
 
 ### Protect your Environment Information:
 * Add your config files to a .gitignore file to match all .json and .js `env/*.js`, `env/*.json` and `src/providers/app-config.ts` be sure not to include a reference that could target your app-config.ts.
